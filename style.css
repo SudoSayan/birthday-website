@@ -1,0 +1,647 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #000;
+}
+
+/* Animated Gradient Background */
+
+.background-animation {
+  position: fixed;
+
+  width: 100%;
+
+  height: 100%;
+
+  background:
+    radial-gradient(circle at top, #ff0080 0%, transparent 40%),
+    radial-gradient(circle at bottom, #7c3aed 0%, transparent 40%),
+    radial-gradient(circle at left, #00bfff 0%, transparent 35%), #000;
+
+  animation: bgMove 15s infinite alternate;
+
+  z-index: -2;
+}
+
+@keyframes bgMove {
+  0% {
+    transform: scale(1);
+
+    filter: hue-rotate(0deg);
+  }
+
+  100% {
+    transform: scale(1.2);
+
+    filter: hue-rotate(40deg);
+  }
+}
+
+/* Gradient Text */
+
+.animate-gradient {
+  background-size: 300%;
+
+  animation: gradient 5s linear infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0%;
+  }
+
+  100% {
+    background-position: 300%;
+  }
+}
+
+/* Floating Hearts */
+
+.hearts {
+  position: fixed;
+
+  width: 100%;
+
+  height: 100%;
+
+  pointer-events: none;
+
+  overflow: hidden;
+
+  z-index: -1;
+}
+
+.heart {
+  position: absolute;
+
+  color: #ff3b8d;
+
+  font-size: 20px;
+
+  animation: float linear forwards;
+
+  opacity: 0.8;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(100vh) scale(0.5);
+
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-120vh) scale(1.6);
+
+    opacity: 0;
+  }
+}
+/* LOVE LETTER */
+
+.letter-card {
+  opacity: 0;
+
+  transform: translateY(120px);
+
+  transition: 1.2s;
+}
+
+.letter-card.show {
+  opacity: 1;
+
+  transform: translateY(0);
+}
+
+.cursor {
+  display: inline-block;
+
+  width: 3px;
+
+  background: #ff5ca8;
+
+  margin-left: 2px;
+
+  animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+/* ===========================
+PHOTO GALLERY
+=========================== */
+
+.photo-card {
+  position: relative;
+
+  overflow: hidden;
+
+  border-radius: 25px;
+
+  cursor: pointer;
+
+  transition: 0.5s;
+
+  box-shadow: 0 15px 40px rgba(255, 0, 120, 0.25);
+}
+
+.gallery-img {
+  width: 100%;
+
+  height: 350px;
+
+  object-fit: cover;
+
+  transition: 0.6s;
+}
+
+.photo-card:hover .gallery-img {
+  transform: scale(1.12);
+}
+
+.photo-card::before {
+  content: "❤";
+
+  position: absolute;
+
+  top: 50%;
+
+  left: 50%;
+
+  transform: translate(-50%, -50%) scale(0);
+
+  font-size: 55px;
+
+  color: white;
+
+  opacity: 0;
+
+  transition: 0.4s;
+
+  z-index: 5;
+}
+
+.photo-card:hover::before {
+  transform: translate(-50%, -50%) scale(1);
+
+  opacity: 1;
+}
+
+.photo-card::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background: rgba(255, 20, 147, 0.25);
+
+  opacity: 0;
+
+  transition: 0.5s;
+}
+
+.photo-card:hover::after {
+  opacity: 1;
+}
+
+/* LIGHTBOX */
+
+.lightbox {
+  position: fixed;
+
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.92);
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  z-index: 999;
+}
+
+.lightbox img {
+  max-width: 85%;
+
+  max-height: 85%;
+
+  border-radius: 20px;
+
+  animation: zoom 0.4s;
+}
+
+.hidden {
+  display: none;
+}
+
+#closeLightbox {
+  position: absolute;
+
+  top: 30px;
+
+  right: 50px;
+
+  font-size: 55px;
+
+  color: white;
+
+  cursor: pointer;
+}
+
+@keyframes zoom {
+  from {
+    transform: scale(0.6);
+
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+
+    opacity: 1;
+  }
+}
+/* ===========================
+REASONS SECTION
+=========================== */
+
+.reason-box {
+  max-width: 850px;
+
+  width: 100%;
+}
+
+.reason-card {
+  background: rgba(255, 255, 255, 0.08);
+
+  backdrop-filter: blur(18px);
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  padding: 50px;
+
+  border-radius: 30px;
+
+  text-align: center;
+
+  transition: 0.5s;
+
+  box-shadow: 0 15px 40px rgba(255, 20, 147, 0.25);
+}
+
+.reason-card:hover {
+  transform: translateY(-8px);
+}
+
+.reason-card .emoji {
+  font-size: 70px;
+
+  margin-bottom: 20px;
+
+  animation: heartbeat 1.5s infinite;
+}
+
+.reason-card h3 {
+  font-size: 34px;
+
+  margin-bottom: 20px;
+
+  color: #ff66b3;
+
+  font-weight: 700;
+}
+
+.reason-card p {
+  font-size: 20px;
+
+  line-height: 35px;
+
+  color: #f3f3f3;
+}
+
+.fade {
+  animation: fadeCard 0.5s;
+}
+
+@keyframes fadeCard {
+  from {
+    opacity: 0;
+
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+}
+
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+/* ===========================
+COUNTDOWN
+=========================== */
+
+.countdown-grid {
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+
+  gap: 30px;
+
+  max-width: 900px;
+
+  margin: auto;
+}
+
+.time-card {
+  background: rgba(255, 255, 255, 0.08);
+
+  backdrop-filter: blur(18px);
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
+  padding: 45px;
+
+  border-radius: 25px;
+
+  text-align: center;
+
+  transition: 0.4s;
+
+  box-shadow: 0 10px 30px rgba(255, 20, 147, 0.25);
+}
+
+.time-card:hover {
+  transform: translateY(-10px) scale(1.03);
+}
+
+.time-card h3 {
+  font-size: 60px;
+
+  color: #ff6eb6;
+
+  font-weight: 700;
+}
+
+.time-card span {
+  font-size: 20px;
+
+  color: white;
+
+  letter-spacing: 2px;
+}
+/* ===========================
+FINAL GIFT
+=========================== */
+
+.gift-box {
+  font-size: 130px;
+
+  cursor: pointer;
+
+  transition: 0.4s;
+
+  user-select: none;
+
+  animation: bounceGift 2s infinite;
+}
+
+.gift-box:hover {
+  transform: scale(1.15) rotate(-8deg);
+}
+
+@keyframes bounceGift {
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+#finalMessage {
+  animation: fadeFinal 2s;
+}
+
+@keyframes fadeFinal {
+  from {
+    opacity: 0;
+
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+}
+
+/* Confetti */
+
+.confetti {
+  position: fixed;
+
+  width: 12px;
+
+  height: 12px;
+
+  top: -20px;
+
+  animation: fall linear forwards;
+
+  z-index: 9999;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh) rotate(720deg);
+
+    opacity: 0;
+  }
+}
+/* ===================================
+STARS
+=================================== */
+
+.star{
+
+position:fixed;
+
+background:white;
+
+border-radius:50%;
+
+animation:twinkle 2s infinite alternate;
+
+pointer-events:none;
+
+}
+
+@keyframes twinkle{
+
+from{
+
+opacity:.2;
+
+transform:scale(.8);
+
+}
+
+to{
+
+opacity:1;
+
+transform:scale(1.3);
+
+}
+
+}
+
+
+/* ===================================
+BALLOONS
+=================================== */
+
+.balloon{
+
+position:fixed;
+
+bottom:-150px;
+
+font-size:55px;
+
+animation:balloonUp linear forwards;
+
+pointer-events:none;
+
+}
+
+@keyframes balloonUp{
+
+to{
+
+transform:translateY(-120vh);
+
+opacity:0;
+
+}
+
+}
+
+
+/* ===================================
+PETALS
+=================================== */
+
+.petal{
+
+position:fixed;
+
+top:-40px;
+
+font-size:22px;
+
+animation:petalFall linear forwards;
+
+pointer-events:none;
+
+}
+
+@keyframes petalFall{
+
+to{
+
+transform:
+
+translateY(110vh)
+
+translateX(120px)
+
+rotate(720deg);
+
+opacity:0;
+
+}
+
+}
+
+
+/* ===================================
+LOVE QUOTES
+=================================== */
+
+.quote{
+
+position:fixed;
+
+font-size:18px;
+
+color:#ff9ac9;
+
+opacity:.4;
+
+animation:quoteFloat 10s linear forwards;
+
+pointer-events:none;
+
+font-weight:600;
+
+}
+
+@keyframes quoteFloat{
+
+to{
+
+transform:translateY(-110vh);
+
+opacity:0;
+
+}
+
+
+/* ===================================
+SCROLL REVEAL
+=================================== */
+
+.reveal{
+
+opacity:0;
+
+transform:translateY(80px);
+
+transition:1s;
+
+}
+
+.reveal.active{
+
+opacity:1;
+
+transform:translateY(0);
+
+}

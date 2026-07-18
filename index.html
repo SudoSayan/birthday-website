@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Happy Birthday ❤️</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body class="bg-black text-white overflow-x-hidden">
+    <!-- Animated Background -->
+    <div class="background-animation"></div>
+
+    <!-- Floating Hearts -->
+    <!-- Premium Effects -->
+
+    <div id="stars"></div>
+
+    <div id="balloons"></div>
+
+    <div id="petals"></div>
+
+    <div id="quotes"></div>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen flex items-center justify-center">
+      <!-- Dark Overlay -->
+      <div class="absolute inset-0 bg-black/60"></div>
+
+      <!-- Hero Content -->
+      <div class="relative z-20 text-center px-6">
+        <h3 class="text-pink-400 tracking-[10px] uppercase mb-5">
+          For Someone Very Special
+        </h3>
+
+        <h1
+          class="text-6xl md:text-8xl font-extrabold bg-gradient-to-r from-pink-500 via-red-400 to-yellow-300 bg-clip-text text-transparent animate-gradient"
+        >
+          Happy Birthday
+        </h1>
+
+        <h2 class="text-4xl mt-5 font-bold">❤️ Sonakshi ❤️</h2>
+
+        <p class="mt-8 text-gray-300 max-w-2xl mx-auto text-lg leading-8">
+          Every moment with you is a beautiful memory. Today is your special
+          day, and I made something special just for you.
+        </p>
+
+        <button
+          id="giftBtn"
+          class="mt-10 px-10 py-4 rounded-full bg-pink-600 hover:bg-pink-500 transition duration-500 text-xl font-semibold shadow-2xl hover:scale-110"
+        >
+          🎁 Open My Gift
+        </button>
+      </div>
+
+      <!-- Scroll Indicator -->
+      <div
+        class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce text-pink-400"
+      >
+        <i class="fa-solid fa-angles-down text-3xl"></i>
+      </div>
+    </section>
+
+    <!-- Next Section Placeholder -->
+    <!-- LOVE LETTER SECTION -->
+
+    <section
+      id="letter"
+      class="min-h-screen flex items-center justify-center px-6 py-20"
+    >
+      <div
+        class="letter-card max-w-4xl w-full rounded-3xl p-10 backdrop-blur-xl bg-white/10 border border-white/20 shadow-2xl"
+      >
+        <h2 class="text-center text-5xl font-bold text-pink-400 mb-10">
+          💌 A Letter For You
+        </h2>
+
+        <div
+          id="typingText"
+          class="text-lg leading-10 text-gray-200 whitespace-pre-line"
+        ></div>
+
+        <div class="text-center mt-12">
+          <button
+            id="nextBtn"
+            class="hidden px-8 py-4 rounded-full bg-pink-600 hover:bg-pink-500 transition duration-300 text-lg font-semibold"
+          >
+            📸 Continue
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Photo Gallery Placeholder -->
+
+    <!-- ================= GALLERY ================= -->
+
+    <section id="gallery" class="min-h-screen py-20 px-6">
+      <h2 class="text-5xl text-center font-bold text-pink-400 mb-14">
+        Memories
+      </h2>
+
+      <div class="grid md:grid-cols-3 sm:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <div class="photo-card">
+          <img src="images/photo1.jpg" class="gallery-img" alt="" />
+        </div>
+
+        <div class="photo-card">
+          <img src="images/photo2.jpg" class="gallery-img" alt="" />
+        </div>
+
+        <div class="photo-card">
+          <img src="images/photo3.jpg" class="gallery-img" alt="" />
+        </div>
+
+        <div class="photo-card">
+          <img src="images/photo4.jpg" class="gallery-img" alt="" />
+        </div>
+
+        <div class="photo-card">
+          <img src="images/photo5.jpg" class="gallery-img" alt="" />
+        </div>
+
+        <div class="photo-card">
+          <img src="images/photo6.jpg" class="gallery-img" alt="" />
+        </div>
+      </div>
+    </section>
+
+    <!-- LIGHTBOX -->
+
+    <div id="lightbox" class="lightbox hidden">
+      <span id="closeLightbox">&times;</span>
+
+      <img id="lightboxImg" />
+    </div>
+
+    <!-- NEXT SECTION PLACEHOLDER -->
+
+    <!-- ================= REASONS SECTION ================= -->
+
+    <section
+      id="reasons"
+      class="min-h-screen py-20 px-6 flex items-center justify-center"
+    >
+      <div class="reason-box">
+        <h2 class="text-5xl text-center font-bold text-pink-400 mb-8">
+          ❤️ Reasons Why I Love You
+        </h2>
+
+        <div id="reasonCard" class="reason-card">
+          <div class="emoji">❤️</div>
+
+          <h3 id="reasonTitle">Your Smile</h3>
+
+          <p id="reasonText">
+            Every time you smile, you make my whole day brighter.
+          </p>
+        </div>
+
+        <div class="text-center mt-10">
+          <button
+            id="nextReason"
+            class="px-8 py-4 rounded-full bg-pink-600 hover:bg-pink-500 transition text-lg font-semibold"
+          >
+            Next Reason ❤️
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Countdown Placeholder -->
+
+    <!-- ================= COUNTDOWN ================= -->
+
+    <section id="countdown" class="min-h-screen py-20 px-6">
+      <h2 class="text-5xl font-bold text-center text-pink-400 mb-5">
+        ⏳ Until We Meet Again
+      </h2>
+
+      <p class="text-center text-gray-300 text-xl mb-12">
+        Every second brings us closer to our next hug. ❤️
+      </p>
+
+      <div class="countdown-grid">
+        <div class="time-card">
+          <h3 id="days">00</h3>
+          <span>Days</span>
+        </div>
+
+        <div class="time-card">
+          <h3 id="hours">00</h3>
+          <span>Hours</span>
+        </div>
+
+        <div class="time-card">
+          <h3 id="minutes">00</h3>
+          <span>Minutes</span>
+        </div>
+
+        <div class="time-card">
+          <h3 id="seconds">00</h3>
+          <span>Seconds</span>
+        </div>
+      </div>
+
+      <div class="text-center mt-14">
+        <button
+          id="giftSectionBtn"
+          class="px-8 py-4 bg-pink-600 rounded-full hover:bg-pink-500 transition text-lg font-semibold"
+        >
+          🎁 Final Surprise
+        </button>
+      </div>
+    </section>
+
+    <!-- Placeholder -->
+
+    <!-- ================= FINAL GIFT ================= -->
+
+    <section
+      id="giftSection"
+      class="min-h-screen flex flex-col justify-center items-center px-6"
+    >
+      <h2 class="text-5xl font-bold text-pink-400 mb-10">
+        🎁 One Last Surprise
+      </h2>
+
+      <div id="giftBox" class="gift-box">🎁</div>
+
+      <p class="mt-8 text-gray-300">Click the gift box...</p>
+
+      <div id="finalMessage" class="hidden mt-14 text-center max-w-3xl">
+        <h2 class="text-6xl font-bold text-pink-400 mb-8">Happy Birthday ❤️</h2>
+
+        <p class="text-xl leading-10 text-gray-200">
+          Distance may keep us apart today, but nothing can stop me from
+          celebrating you. Thank you for being the wonderful person you are. I
+          hope this little website made you smile. I can't wait until the day I
+          can celebrate beside you. ❤️ I Love You.
+        </p>
+      </div>
+    </section>
+
+    <!-- Background Music -->
+    <audio id="birthdayMusic" loop>
+      <source src="music/birthday.mp3" type="audio/mpeg" />
+    </audio>
+
+    <!-- Confetti Container -->
+    <div id="confettiContainer"></div>
+    <script src="script.js"></script>
+  </body>
+</html>

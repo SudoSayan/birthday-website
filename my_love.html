@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Birthday</title>
+    <link rel="stylesheet" href="output.css" />
+    <style>
+      .balloon,
+      .heart,
+      .popper {
+        position: absolute;
+        bottom: -80px;
+        font-size: 2rem;
+        user-select: none;
+        animation: floatUp linear forwards;
+      }
+
+      @keyframes floatUp {
+        0% {
+          transform: translateY(0) rotate(0deg);
+          opacity: 0;
+        }
+
+        10% {
+          opacity: 1;
+        }
+
+        100% {
+          transform: translateY(-120vh) rotate(360deg);
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+<body class="bg-gradient-to-br from-blue-400 to-red-400 via-pink-300">
+<div class="relative z-10"></div>
+        <div
+      id="effects"
+      class="fixed inset-0 pointer-events-none overflow-hidden -z-10"
+    ></div>
+    <div
+      class="absolute inset-0 bg-black/30 z-0 pointer-events-none"
+      style="z-index: 0"
+    ></div>
+    <div class="h-[640px] w-full flex flex-col justify-center items-center">
+      <div>
+        <h1
+          class="text-7xl text-center font-bold font-serif text-red-500 text-shadow-lg/30"
+        >
+          HAPPY BIRTHDAY
+        </h1>
+        <h1
+          class="text-5xl font-semibold text-pink-700 mt-4 text-center font-serif text-shadow-lg/30"
+        >
+          Sonakshi
+        </h1>
+        <p
+          class="text-xl text-white font-mono font-bold text-center mt-5 text-shadow-lg/30"
+        >
+          Today is a very special day for you enjoy every minute of this day.
+          <br />
+          This is just a small gift for you from me.
+        </p>
+        <button
+          id="giftBtn"
+          class="ml-[17rem] mt-10 px-10 py-4 rounded-full bg-pink-600 hover:bg-pink-500 transition duration-500 text-xl font-semibold shadow-2xl hover:scale-110 overflow-hidden"
+          style="z-index: 10"
+        >
+          Open The Gift
+        </button>
+      </div>
+    </div>
+    <div class="w-full flex justify-center items-center">
+      <div
+        id="letter"
+        class="letter-card max-w-4xl w-full rounded-3xl p-10 backdrop-blur-xl bg-white/10 border border-white/20 shadow-2xl mb-[5rem] mt-[5rem]"
+      >
+        <h2 class="text-center text-5xl font-bold text-pink-700 mb-10">
+          A Letter For My Love
+        </h2>
+
+        <div
+          id="typingText"
+          class="text-lg leading-10 text-black font-mono whitespace-pre-line"
+        ></div>
+      </div>
+    </div>
+
+    <div
+      id="card"
+      class="w-full text-center font-mono font-bold text-xl opacity-0 translate-y-10 transition-all duration-1000 ease-out delay-25000 mb-[5rem]"
+    >
+      <h1 class="text-pink-700 text-center font-extrabold text-7xl">Message</h1>
+
+      <p class="text-2xl text-white ml-[6rem] mr-[6rem]">
+        Distance may keep us apart today, but nothing can stop me from
+        celebrating this special day with you. Thank you for being the most
+        wonderful person in my life. I hope this little gift from me can make
+        you smile. I can't wait until the day I can celebrate beside you and i
+        hope that day arises very soon. ❤️ I Love You.
+      </p>
+        </div>
+</div>
+</body>
+  <script>
+    document.getElementById("giftBtn").addEventListener("click", () => {
+      document.getElementById("letter").scrollIntoView({
+        behavior: "smooth",
+      });
+    });
+    const letterCard = document.querySelector(".letter-card");
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          letterCard.classList.add("show");
+
+          startTyping();
+        }
+      });
+    });
+
+    observer.observe(letterCard);
+
+    const message = `Dear Sonakshi ❤️,
+
+Happy Birthday to the most beautiful person in my life.
+
+Even though miles separate us today, my heart feels close to yours every single moment.
+
+I wish I could be there to celebrate with you, see your smile, and make this day even more special.
+
+Until that day comes, I hope this little website reminds you how much you mean to me.
+
+Thank you for making my life brighter.
+
+May this year bring you happiness, success, laughter, and every dream you wish for.
+
+Never stop smiling...
+
+because your smile is my favorite view.
+
+❤️ Happy Birthday ❤️
+
+Forever Yours,
+Saikat`;
+
+    const typing = document.getElementById("typingText");
+
+    const nextBtn = document.getElementById("nextBtn");
+
+    let i = 0;
+
+    let started = false;
+
+    function startTyping() {
+      if (started) return;
+
+      started = true;
+
+      function type() {
+        if (i < message.length) {
+          typing.innerHTML += message.charAt(i);
+
+          i++;
+
+          setTimeout(type, 35);
+        } else {
+          nextBtn.classList.remove("hidden");
+        }
+      }
+
+      type();
+    }
+    const card = document.getElementById("card");
+
+    setTimeout(() => {
+      card.classList.remove("opacity-0", "translate-y-10");
+      card.classList.add("opacity-100", "translate-y-0");
+    }, 500);
+    const stars = document.getElementById("stars");
+
+    for (let i = 0; i < 150; i++) {
+      const star = document.createElement("div");
+
+      star.className = "star";
+
+      star.style.width = Math.random() * 3 + 2 + "px";
+
+      star.style.height = star.style.width;
+
+      star.style.left = Math.random() * 100 + "vw";
+
+      star.style.top = Math.random() * 100 + "vh";
+
+      star.style.animationDelay = Math.random() * 2 + "s";
+
+      stars.appendChild(star);
+    }
+
+    // =====================================
+    // BALLOONS
+    // =====================================
+
+    function createBalloon() {
+      const balloon = document.createElement("div");
+
+      balloon.className = "balloon";
+
+      balloon.innerHTML = "🎈";
+
+      balloon.style.left = Math.random() * 100 + "vw";
+
+      balloon.style.animationDuration = 8 + Math.random() * 5 + "s";
+
+      document.body.appendChild(balloon);
+
+      setTimeout(() => {
+        balloon.remove();
+      }, 13000);
+    }
+
+    setInterval(createBalloon, 3000);
+
+    // =====================================
+    // ROSE PETALS
+    // =====================================
+
+    function createPetal() {
+      const petal = document.createElement("div");
+
+      petal.className = "petal";
+
+      petal.innerHTML = "🌹";
+
+      petal.style.left = Math.random() * 100 + "vw";
+
+      petal.style.animationDuration = 6 + Math.random() * 4 + "s";
+
+      document.body.appendChild(petal);
+
+      setTimeout(() => {
+        petal.remove();
+      }, 10000);
+    }
+
+    setInterval(createPetal, 800);
+
+    // =====================================
+    // LOVE QUOTES
+    // =====================================
+
+    const quotes = [
+      "I Miss You ❤️",
+
+      "You Are My Happiness",
+
+      "My Forever",
+
+      "Love You",
+
+      "My Sunshine",
+
+      "My Favorite Person",
+    ];
+
+    function floatingQuote() {
+      const q = document.createElement("div");
+
+      q.className = "quote";
+
+      q.innerHTML = quotes[Math.floor(Math.random() * quotes.length)];
+
+      q.style.left = Math.random() * 100 + "vw";
+
+      q.style.bottom = "-40px";
+
+      document.body.appendChild(q);
+
+      setTimeout(() => {
+        q.remove();
+      }, 10000);
+    }
+
+    setInterval(floatingQuote, 5000);
+    const reveals = document.querySelectorAll("section");
+
+    window.addEventListener("scroll", () => {
+      reveals.forEach((sec) => {
+        const top = sec.getBoundingClientRect().top;
+
+        if (top < window.innerHeight - 120) {
+          sec.classList.add("active");
+        }
+      });
+    });
+
+    reveals.forEach((sec) => {
+      sec.classList.add("reveal");
+    });
+    const effects = document.getElementById("effects");
+
+    const emojis = ["🎈", "❤️", "🎉", "🎊"];
+
+    function createEffect() {
+      const item = document.createElement("div");
+
+      const emoji = emojis[Math.floor(Math.random() * emojis.length)];
+
+      item.innerHTML = emoji;
+
+      if (emoji === "🎈") item.className = "balloon";
+      if (emoji === "❤️") item.className = "heart";
+      if (emoji === "🎉" || emoji === "🎊") item.className = "popper";
+
+      item.style.left = Math.random() * 100 + "vw";
+      item.style.fontSize = Math.random() * 25 + 25 + "px";
+      item.style.animationDuration = Math.random() * 5 + 6 + "s";
+
+      effects.appendChild(item);
+
+      setTimeout(() => {
+        item.remove();
+      }, 12000);
+    }
+
+    setInterval(createEffect, 400);
+  </script>
+</html>
